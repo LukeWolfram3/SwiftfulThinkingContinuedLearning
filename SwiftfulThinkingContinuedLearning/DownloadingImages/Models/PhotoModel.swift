@@ -12,7 +12,7 @@ struct PhotoModel: Identifiable, Codable {
     let id: Int
     let title: String
     let url: String
-    let thumbnailURL: String
+    let thumbnailUrl: String
 }
 
 /*

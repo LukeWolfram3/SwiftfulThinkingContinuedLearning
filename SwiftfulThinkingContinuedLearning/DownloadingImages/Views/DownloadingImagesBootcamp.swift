@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct DownloadingImagesBootcamp: View {
+    
+    @StateObject var viewModel = DownloadingImagesViewModel()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.dataArray) { model in
+                    DownloadingImageRows(model: model)
+                }
+            }
+            .navigationTitle("Downloading Images")
+        }
     }
 }
 

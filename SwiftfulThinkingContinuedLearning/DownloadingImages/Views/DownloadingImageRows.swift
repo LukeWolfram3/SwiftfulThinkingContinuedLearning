@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct DownloadingImageRows: View {
+    
+    let model: PhotoModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            DownloadingImageView(url: model.url, key: "\(model.id)")
+                .frame(width: 75, height: 75)
+            VStack {
+                Text(model.title)
+                    .font(.headline)
+                Text(model.url)
+                    .foregroundStyle(.gray)
+                    .italic()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
     }
 }
 
 #Preview {
-    DownloadingImageRows()
-}
+    DownloadingImageRows(model: PhotoModel(albumId: 1, id: 1, title: "Title", url: "https://via.placeholder.com/600/92c952", thumbnailUrl: "thumbnail url here"))
+}       
+
